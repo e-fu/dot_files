@@ -1,0 +1,23 @@
+# http://raphael.kallensee.name/journal/how-to-setup-git-and-git-aliases/
+# https://git-scm.com/book/en/v2/Git-Basics-Git-Aliases
+[push]
+	default = simple
+[user]
+	name = Ernesto Fries Urioste
+	email = efries@inetpeople.net
+[alias]
+	co = checkout
+	st = status
+	unstage = reset HEAD --
+	aa = !git add -u && git add . && git status
+	ci = commit
+[core]
+	editor = vim
+	filemode = false
+	excludesfile = /Users/efries/.gitignore_global
+[credential]
+	helper = osxkeychain
+[color]
+	ui = true
+[merge]
+	tool = vimdiff

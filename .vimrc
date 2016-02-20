@@ -24,6 +24,7 @@ Plug 'bling/vim-airline'
 Plug 'pangloss/vim-javascript'
 Plug 'plasticboy/vim-markdown'
 Plug 'christoomey/vim-tmux-navigator'
+
 " Themes
 Plug 'joshdick/onedark.vim'
 Plug 'joshdick/airline-onedark.vim'
@@ -35,6 +36,9 @@ Plug 'rking/ag.vim'
 
 " Thoughtbot
 Plug 'christoomey/vim-run-interactive'
+
+" dash
+Plug 'rizzatti/dash.vim'
 
 call plug#end()
 

@@ -1,11 +1,30 @@
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin()
 
 "spacemacs
+Plug 'jimmay5469/vim-spacemacs'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'szw/vim-maximizer'
+Plug 'pbrisbin/vim-mkdir'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'rking/ag.vim'
 
-Plug 'jimmay5469/vim-spacemacs'
+" Elixir
+Plug 'slashmili/alchemist.vim'
+Plug 'powerman/vim-plugin-AnsiEsc'
+
+"elm
+Plug 'elmcast/elm-vim'
+
+" neovim
+Plug 'shougo/deoplete.nvim'
+
 "git layer
 Plug 'tpope/vim-fugitive'
 
@@ -19,20 +38,17 @@ Plug 'airblade/vim-gitgutter'
 "custom
 Plug 'tpope/vim-sensible'
 Plug 'elixir-lang/vim-elixir'
-Plug 'scrooloose/syntastic'
 Plug 'bling/vim-airline'
-Plug 'pangloss/vim-javascript'
 Plug 'plasticboy/vim-markdown'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'ap/vim-css-color'
+
+"testing
+Plug 'janko-m/vim-test'
 
 " Themes
 Plug 'joshdick/onedark.vim'
-Plug 'joshdick/airline-onedark.vim'
 Plug 'gosukiwi/vim-atom-dark'
-
-Plug 'pbrisbin/vim-mkdir'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'rking/ag.vim'
 
 " Thoughtbot
 Plug 'christoomey/vim-run-interactive'
@@ -45,9 +61,38 @@ call plug#end()
 " spacemacs
 let mapleader = "\<SPACE>"
 
+" deoplete
+let g:deoplete#enable_at_startup = 1
+
 "airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='onedark'
+"VIM Airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+let g:airline_symbols = {}
+endif
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
+set guifont=Inconsolata:h14.00 "best font ever
+"ignored directories which command-t will use too. Make sure _build is in here
+set wildignore=*.o,*.obj,.git,node_modules/**,bower_components/**,**/node_modules/**,_build/**,deps/**
+
+"elm (needs elm-oracle, elm-test and elm)
+let g:elm_format_autosave = 1
 
 "theme
 syntax on
@@ -62,10 +107,10 @@ set number
 set numberwidth=5
 
 " Get off my lawn
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
+" nnoremap <Left> :echoe "Use h"<CR>
+" nnoremap <Right> :echoe "Use l"<CR>
+" nnoremap <Up> :echoe "Use k"<CR>
+" nnoremap <Down> :echoe "Use j"<CR>
 
 " Quicker window movement
 nnoremap <C-j> <C-w>j
@@ -126,3 +171,21 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:elm_syntastic_show_warnings = 1
+
+set guifont=Inconsolata:h14.00 "best font ever
+"ignored directories which command-t will use too. Make sure _build is in here
+set wildignore=*.o,*.obj,.git,node_modules/**,bower_components/**,**/node_modules/**,_build/**,deps/**
+
+"run tests right from vim - super helpful
+"click space twice :)
+" map <leader><space> :!mix test<CR>
+map <leader><space> :!mix test %<CR>
+
+" vim-test
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>T :TestFile<CR>
+nmap <silent> <leader>a :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>g :TestVisit<CR>
+ 

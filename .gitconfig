@@ -12,7 +12,7 @@
 	aa = !git add -u && git add . && git status
 	ci = commit
 [core]
-	editor = vim
+	editor = nvim
 	filemode = false
 	excludesfile = /Users/efries/.gitignore_global
 [credential]
@@ -20,4 +20,4 @@
 [color]
 	ui = true
 [merge]
-	tool = vimdiff
+	tool = nvim -d

@@ -16,7 +16,7 @@ POWERLEVEL9K_TIME_FORMAT="%D{%H:%M:%S \uF0CE  %d.%m.%y}"
 
 # Add wisely, as too many plugins slow down shell startup.
 # git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
-plugins=(git mix npm brew osx zsh-autosuggestions vi-mode)
+plugins=(vi-mode git mix npm brew osx zsh-autosuggestions history-substring-search)
 
 # Aliase
 alias locate="mdfind"

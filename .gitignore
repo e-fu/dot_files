@@ -13,6 +13,8 @@
 !.npmrc
 !.scripts/
 !.atom/
+!.weechat/
+.weechat/logs/
 .atom/config.cson
 .atom/compile-cache/
 .atom/blob-store/

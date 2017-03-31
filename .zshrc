@@ -14,12 +14,16 @@ POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
 # Output time, date, and a symbol from nerd (awesome) font
 POWERLEVEL9K_TIME_FORMAT="%D{%H:%M:%S \uF0CE  %d.%m.%y}"
 
+ENABLE_CORRECTION="true"
+COMPLETION_WAITING_DOTS="true"
+
 # Add wisely, as too many plugins slow down shell startup.
 # git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
-plugins=(vi-mode git mix npm brew osx zsh-autosuggestions history-substring-search)
+plugins=(vi-mode git mix npm brew osx  history-substring-search)
 
 # Aliase
 alias locate="mdfind"
+alias updatedb="sudo mdutil -pEsav"
 alias vim="nvim"
 alias vimdiff="nvim -d"
 
@@ -36,8 +40,20 @@ PATH="$NPM_PACKAGES/bin:$PATH"
 unset MANPATH # delete if you already modified MANPATH elsewhere in your config
 export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 
+# no analytics homebrew
+export HOMEBREW_NO_ANALYTICS=1
+
+# Cheat for command line (brew install cheat)
+export CHEATCOLORS=true
+
 # install elixir and phoenix
 # https://gist.github.com/likethesky/abb00e5aedc38ee9f711
 
+# OPAM configuration
+. /Users/efu/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+### EOF ###
+# zsh syntax highlighting
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+

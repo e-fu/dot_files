@@ -10,7 +10,7 @@
 	st = status
 	unstage = reset HEAD --
 	aa = !git add -u && git add . && git status
-	ci = commit
+	ci = commit -a
 [core]
 	editor = nvim
 	filemode = false

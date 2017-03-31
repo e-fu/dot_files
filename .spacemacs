@@ -31,6 +31,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     yaml
      html
      elm
      ;; ----------------------------------------------------------------
@@ -57,14 +58,18 @@ values."
      (syntax-checking :variables
                       syntax-checking-enable-tooltips t)
      version-control
-     dash
+     ;; dash
      elixir
      erlang
      elm
+     restclient
      ;; vim-powerline
      javascript
+     osx
+     ocaml
      writeroom
      colors
+     evil-commentary
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -123,7 +128,7 @@ values."
    ;; directory. A string value must be a path to an image format supported
    ;; by your Emacs build.
    ;; If the value is nil then no banner is displayed. (default 'official)
-   dotspacemacs-startup-banner 'official
+   dotspacemacs-startup-banner 'random
    ;; List of items to show in startup buffer or an association list of of
    ;; the form `(list-type . list-size)`. If nil it is disabled.
    ;; Possible values for list-type are:
@@ -145,7 +150,7 @@ values."
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Meslo LG S for Powerline"
                                ;; "Source Code Pro for Powerline"
-                               :size 12
+                               :size 16
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -188,7 +193,7 @@ values."
    dotspacemacs-display-default-layout t
    ;; If non nil then the last auto saved layouts are resume automatically upon
    ;; start. (default nil)
-   dotspacemacs-auto-resume-layouts nil
+   dotspacemacs-auto-resume-layouts t
    ;; Size (in MB) above which spacemacs will prompt to open the large file
    ;; literally to avoid performance issues. Opening a file literally means that
    ;; no major mode or minor modes are active. (default is 1)
@@ -271,7 +276,7 @@ values."
    dotspacemacs-highlight-delimiters 'all
    ;; If non nil advises quit functions to keep server open when quitting.
    ;; (default nil)
-   dotspacemacs-persistent-server nil
+   dotspacemacs-persistent-server t
    ;; List of search tool executable names. Spacemacs uses the first installed
    ;; tool of the list. Supported tools are `ag', `pt', `ack' and `grep'.
    ;; (default '("ag" "pt" "ack" "grep"))
@@ -317,6 +322,14 @@ you should place your code here."
   (define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
   (global-fci-mode 1)
 
+  (setq frame-title-format '(buffer-file-name "%f" ("%b"))
+        mouse-autoselect-window t
+        display-time-24hr-format t)
+  (blink-cursor-mode t)
+  (display-time-mode t)
+  (setq indicate-unused-lines t)
+
+
   (fancy-battery-mode t)
   ;l(golden-ratio-mode 1)
   (whitespace-mode 1)
@@ -339,7 +352,14 @@ you should place your code here."
  '(elm-format-on-save t)
  '(package-selected-packages
    (quote
-    (ob-elixir insert-shebang hide-comnt pug-mode powerline spinner skewer-mode json-snatcher json-reformat multiple-cursors parent-mode gitignore-mode fringe-helper git-gutter+ flx goto-chg highlight diminish dash-functional pos-tip bind-map bind-key packed pkg-info epl async popup package-build smooth-scrolling ruby-end page-break-lines leuven-theme helm-flyspell buffer-move bracketed-paste undo-tree elixir-mode s erlang dumb-jump simple-httpd auto-complete tern f evil git-gutter request git-commit hydra js2-mode dash smartparens with-editor reveal-in-osx-finder pbcopy osx-trash launchctl org avy markdown-mode company helm helm-core yasnippet magit magit-popup visual-fill-column anzu iedit flycheck projectile web-mode tagedit slim-mode scss-mode sass-mode less-css-mode jade-mode helm-css-scss haml-mode emmet-mode company-web web-completion-data flyspell-correct-helm flyspell-correct auto-dictionary elm-yasnippets elixir-yasnippets xterm-color ws-butler writeroom-mode window-numbering which-key web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package toc-org sublime-themes spacemacs-theme spaceline smeargle shell-pop restart-emacs rainbow-mode rainbow-identifiers rainbow-delimiters quelpa popwin persp-mode pcre2el paradox orgit org-plus-contrib org-bullets open-junk-file neotree multi-term move-text mmm-mode markdown-toc magit-gitflow macrostep lorem-ipsum livid-mode linum-relative link-hint json-mode js2-refactor js-doc info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-dash helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md flycheck-pos-tip flycheck-mix flycheck-elm flx-ido fish-mode fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help elm-mode elisp-slime-nav diff-hl define-word dash-at-point company-tern company-statistics company-shell company-quickhelp column-enforce-mode color-identifiers-mode coffee-mode clean-aindent-mode auto-yasnippet auto-highlight-symbol auto-compile alchemist aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))))
+    (evil-commentary yaml-mode utop tuareg caml ocp-indent merlin osx-dictionary restclient ob-http ob-elixir insert-shebang hide-comnt pug-mode powerline spinner skewer-mode json-snatcher json-reformat multiple-cursors parent-mode gitignore-mode fringe-helper git-gutter+ flx goto-chg highlight diminish dash-functional pos-tip bind-map bind-key packed pkg-info epl async popup package-build smooth-scrolling ruby-end page-break-lines leuven-theme helm-flyspell buffer-move bracketed-paste undo-tree elixir-mode s erlang dumb-jump simple-httpd auto-complete tern f evil git-gutter request git-commit hydra js2-mode dash smartparens with-editor reveal-in-osx-finder pbcopy osx-trash launchctl org avy markdown-mode company helm helm-core yasnippet magit magit-popup visual-fill-column anzu iedit flycheck projectile web-mode tagedit slim-mode scss-mode sass-mode less-css-mode jade-mode helm-css-scss haml-mode emmet-mode company-web web-completion-data flyspell-correct-helm flyspell-correct auto-dictionary elm-yasnippets elixir-yasnippets xterm-color ws-butler writeroom-mode window-numbering which-key web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package toc-org sublime-themes spacemacs-theme spaceline smeargle shell-pop restart-emacs rainbow-mode rainbow-identifiers rainbow-delimiters quelpa popwin persp-mode pcre2el paradox orgit org-plus-contrib org-bullets open-junk-file neotree multi-term move-text mmm-mode markdown-toc magit-gitflow macrostep lorem-ipsum livid-mode linum-relative link-hint json-mode js2-refactor js-doc info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-dash helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md flycheck-pos-tip flycheck-mix flycheck-elm flx-ido fish-mode fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help elm-mode elisp-slime-nav diff-hl define-word dash-at-point company-tern company-statistics company-shell company-quickhelp column-enforce-mode color-identifiers-mode coffee-mode clean-aindent-mode auto-yasnippet auto-highlight-symbol auto-compile alchemist aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
+ '(safe-local-variable-values
+   (quote
+    ((eval progn
+           (pp-buffer)
+           (indent-buffer))
+     (elixir-enable-compilation-checking . t)
+     (elixir-enable-compilation-checking)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

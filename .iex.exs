@@ -1,4 +1,4 @@
-IEx.configure inspect: [limit: 3]
+IEx.configure inspect: [limit: 10 ]
 IEx.configure colors: [
-  eval_result: [:cyan, :bright]
+  # eval_result: [:cyan, :bright]
 ]

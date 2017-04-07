@@ -4,6 +4,9 @@ export TERM="xterm-256color"
 # brew tap caskroom/fonts     
 # brew cask search /nerd/ 
 # brew cask install font-meslo-nerd-font 
+# For spacemacs
+# brew cask install font-source-code-pro-for-powerline --fontdir=/Library/Fonts
+# brew cask install font-meslo-for-powerline --fontdir=/Library/Fonts
 # and change font in iterm2
 POWERLEVEL9K_MODE='awesome-fontconfig'
 ZSH_THEME="powerlevel9k/powerlevel9k"

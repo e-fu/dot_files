@@ -1,6 +1,7 @@
 /*
 !.gitignore
 !.zshrc
+!hist.config
 !.spacemacs
 !.tmux.conf
 !.bitchrc

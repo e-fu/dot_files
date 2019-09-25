@@ -1,5 +1,9 @@
 # Path to your oh-my-zsh installation.
 export TERM="xterm-256color"
+
+# brew install zsh zsh-completions
+fpath=(/usr/local/share/zsh-completions $fpath)
+
 # Install Fonts:
 # brew tap caskroom/fonts     
 # brew cask search /nerd/ 
@@ -16,7 +20,6 @@ POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
 # Output time, date, and a symbol from nerd (awesome) font
 POWERLEVEL9K_TIME_FORMAT="%D{%H:%M:%S \uF0CE  %d.%m.%y}"
-
 ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 
@@ -33,7 +36,12 @@ alias vimdiff="nvim -d"
 # User configuration
 source $ZSH/oh-my-zsh.sh
 export LANG=en_US.UTF-8
-# more in: ~/.zprofile
+export ERL_AFLAGS="-kernel shell_history enabled"
+
+# homebrew python2
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+
+# more in: ~/.zprofile (not in git because there is private stuff)
 
 # NPM - Do not "sudo" !!
 # https://github.com/sindresorhus/guides/blob/master/npm-global-without-sudo.md

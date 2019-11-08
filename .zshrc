@@ -1,6 +1,7 @@
 # Path to your oh-my-zsh installation.
 export TERM="xterm-256color"
-
+# trust homebrew
+ZSH_DISABLE_COMPFIX="true"
 # brew install zsh zsh-completions
 fpath=(/usr/local/share/zsh-completions $fpath)
 
@@ -66,5 +67,7 @@ export CHEATCOLORS=true
 ### EOF ###
 # zsh syntax highlighting
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+# trust homebrew
+ZSH_DISABLE_COMPFIX="true"
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 

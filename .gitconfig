@@ -14,10 +14,17 @@
 [core]
 	editor = nvim
 	filemode = false
-	excludesfile = /Users/efries/.gitignore_global
+	excludesfile = /Users/efu/.gitignore_global
+	autocrlf = input
+	safecrlf = true
 [credential]
 	helper = osxkeychain
 [color]
-	ui = true
+	ui = auto
 [merge]
 	tool = nvim -d
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

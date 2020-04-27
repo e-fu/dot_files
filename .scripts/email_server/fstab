@@ -1,4 +1,0 @@
-UUID=4f9bfdcd-1564-4e65-8105-9e8c2ef59f40	/	ext4	errors=remount-ro	0	1
-UUID=cf813a12-3688-49be-8570-a14c20b6eb24	none	swap	sw	0	0
-/dev/mapper/volume-35e15e2d-part1 /home/user-data/backup ext4 _netdev 0 0
-

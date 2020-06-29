@@ -1,0 +1,5 @@
+sudo -E duplicity restore --force s3://s3-us-west-1.amazonaws.com/email-inetpeople-2019 /home/user-data/
+
+# don't save api keys in this DIR
+export AWS_ACCESS_KEY_ID=
+export AWS_SECRET_ACCESS_KEY=

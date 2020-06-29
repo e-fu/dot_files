@@ -26,3 +26,4 @@
 .atom/.node-gyp
 .atom/.npm
 !README.md
+.scripts/email_server/secret_key.txt

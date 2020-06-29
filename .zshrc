@@ -1,6 +1,7 @@
 # Path to your oh-my-zsh installation.
 export TERM="xterm-256color"
-
+# trust homebrew
+ZSH_DISABLE_COMPFIX="true"
 # brew install zsh zsh-completions
 fpath=(/usr/local/share/zsh-completions $fpath)
 
@@ -26,7 +27,7 @@ COMPLETION_WAITING_DOTS="true"
 
 # Add wisely, as too many plugins slow down shell startup.
 # git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
-plugins=(vi-mode git mix npm brew osx history-substring-search)
+plugins=(vi-mode git mix npm brew osx history-substring-search zsh-syntax-highlighting)
 ZSH_DISABLE_COMPFIX=true
 # Aliase
 alias locate="mdfind"
@@ -62,9 +63,11 @@ export CHEATCOLORS=true
 # https://gist.github.com/likethesky/abb00e5aedc38ee9f711
 
 # OPAM configuration
-. /Users/efu/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+# . /Users/efu/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 ### EOF ###
 # zsh syntax highlighting
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# trust homebrew
+ZSH_DISABLE_COMPFIX="true"
+

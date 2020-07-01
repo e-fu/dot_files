@@ -4,11 +4,15 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/efu/.oh-my-zsh"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+# Add wisely, as too many plugins slow down shell startup.
+# git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+plugins=(vi-mode git mix npm brew osx history-substring-search zsh-syntax-highlighting)
+ZSH_DISABLE_COMPFIX=true
+# Aliase
+alias locate="mdfind"
+alias updatedb="sudo mdutil -pEsav"
+alias vim="nvim"
+alias vimdiff="nvim -d"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -86,14 +90,11 @@ source $ZSH/oh-my-zsh.sh
 #   export EDITOR='mvim'
 # fi
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+# OPAM configuration
+# . /Users/efu/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+### EOF ###
+# zsh syntax highlighting
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+# trust homebrew
+ZSH_DISABLE_COMPFIX="true"

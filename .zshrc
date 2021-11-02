@@ -47,6 +47,11 @@ alias updatedb="sudo mdutil -pEsav"
 alias vim="nvim"
 alias vimdiff="nvim -d"
 
+# Usage: compresspdf [input file] [output file] [screen*|ebook|printer|prepress]
+compresspdf() {
+    gs -sDEVICE=pdfwrite -dNOPAUSE -dQUIET -dBATCH -dPDFSETTINGS=/${3:-"ebook"} -dCompatibilityLevel=1.4 -sOutputFile="$2" "$1"
+}
+
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -153,10 +158,7 @@ export CHEATCOLORS=true
 # brew install pyenv
 # pyenv install -l 
 # pyenv install 3.8.5
-
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
+# eval "$(pyenv init -)"
 
 # no analytics homebrew	
 export HOMEBREW_NO_ANALYTICS=1

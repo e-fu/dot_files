@@ -3,7 +3,7 @@
 [push]
 	default = simple
 [user]
-	name = Ernesto Fries Urioste
+	name = EFU
 	email = efries@inetpeople.net
 [alias]
 	co = checkout
@@ -15,7 +15,7 @@
 	editor = nvim
 	filemode = false
 	excludesfile = /Users/efu/.gitignore_global
-	autocrlf = input
+	autocrlf = false
 	safecrlf = true
 [credential]
 	helper = osxkeychain
@@ -30,3 +30,11 @@
 	required = true
 [init]
 	defaultBranch = main
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/efu/.stCommitMsg

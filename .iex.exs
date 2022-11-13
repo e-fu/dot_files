@@ -1,4 +1,14 @@
-IEx.configure inspect: [limit: 10 ]
-IEx.configure colors: [
-  # eval_result: [:cyan, :bright]
-]
+IEx.configure(
+  width: 30,
+  colors: [
+    syntax_colors: [
+      number: :magenta,
+      atom: :cyan,
+      string: :green,
+      boolean: :magenta,
+      nil: :magenta
+    ]
+  ]
+)
+
+

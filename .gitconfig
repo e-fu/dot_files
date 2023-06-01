@@ -38,3 +38,5 @@
 	trustExitCode = true
 [commit]
 	template = /Users/efu/.stCommitMsg
+[safe]
+	directory = /opt/homebrew
